@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import { useAuth } from '../contexts/AuthContext.jsx';
+import LoadingSpinner from '../components/UI/LoadingSpinner.jsx';
 
 const RegisterPage = () => {
   const { register, isAuthenticated, loading } = useAuth();
@@ -96,22 +96,22 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <div className="flex justify-center">
-            <div className="w-16 h-16 bg-primary-600 rounded-xl flex items-center justify-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-2xl">S</span>
             </div>
           </div>
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-bold text-white">
             Join StackIt
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-gray-400">
             Or{' '}
             <Link
               to="/login"
-              className="font-medium text-primary-600 hover:text-primary-500"
+              className="font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200"
             >
               sign in to your account
             </Link>
@@ -120,14 +120,14 @@ const RegisterPage = () => {
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {errors.submit && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
+            <div className="bg-red-900/50 border border-red-700/50 text-red-300 px-4 py-3 rounded-xl backdrop-blur-sm">
               {errors.submit}
             </div>
           )}
 
           <div className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="username" className="block text-sm font-medium text-gray-300">
                 Username
               </label>
               <input
@@ -138,16 +138,21 @@ const RegisterPage = () => {
                 required
                 value={formData.username}
                 onChange={handleInputChange}
-                className={`form-input ${errors.username ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''}`}
+                className={`w-full px-4 py-3 bg-gray-900/60 border rounded-xl text-white placeholder-gray-400 
+                          focus:outline-none focus:ring-2 backdrop-blur-sm transition-all duration-300 ${
+                  errors.username 
+                    ? 'border-red-500/50 focus:ring-red-500/50 focus:border-red-500/50' 
+                    : 'border-gray-700/50 focus:ring-blue-500/50 focus:border-blue-500/50 hover:border-gray-600/50'
+                }`}
                 placeholder="Choose a username"
               />
               {errors.username && (
-                <p className="mt-1 text-sm text-red-600">{errors.username}</p>
+                <p className="mt-1 text-sm text-red-400">{errors.username}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-300">
                 Email address
               </label>
               <input
@@ -158,16 +163,21 @@ const RegisterPage = () => {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`form-input ${errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''}`}
+                className={`w-full px-4 py-3 bg-gray-900/60 border rounded-xl text-white placeholder-gray-400 
+                          focus:outline-none focus:ring-2 backdrop-blur-sm transition-all duration-300 ${
+                  errors.email 
+                    ? 'border-red-500/50 focus:ring-red-500/50 focus:border-red-500/50' 
+                    : 'border-gray-700/50 focus:ring-blue-500/50 focus:border-blue-500/50 hover:border-gray-600/50'
+                }`}
                 placeholder="Enter your email"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                <p className="mt-1 text-sm text-red-400">{errors.email}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-300">
                 Password
               </label>
               <input
@@ -178,16 +188,21 @@ const RegisterPage = () => {
                 required
                 value={formData.password}
                 onChange={handleInputChange}
-                className={`form-input ${errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''}`}
+                className={`w-full px-4 py-3 bg-gray-900/60 border rounded-xl text-white placeholder-gray-400 
+                          focus:outline-none focus:ring-2 backdrop-blur-sm transition-all duration-300 ${
+                  errors.password 
+                    ? 'border-red-500/50 focus:ring-red-500/50 focus:border-red-500/50' 
+                    : 'border-gray-700/50 focus:ring-blue-500/50 focus:border-blue-500/50 hover:border-gray-600/50'
+                }`}
                 placeholder="Create a password"
               />
               {errors.password && (
-                <p className="mt-1 text-sm text-red-600">{errors.password}</p>
+                <p className="mt-1 text-sm text-red-400">{errors.password}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300">
                 Confirm Password
               </label>
               <input
@@ -198,11 +213,16 @@ const RegisterPage = () => {
                 required
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
-                className={`form-input ${errors.confirmPassword ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''}`}
+                className={`w-full px-4 py-3 bg-gray-900/60 border rounded-xl text-white placeholder-gray-400 
+                          focus:outline-none focus:ring-2 backdrop-blur-sm transition-all duration-300 ${
+                  errors.confirmPassword 
+                    ? 'border-red-500/50 focus:ring-red-500/50 focus:border-red-500/50' 
+                    : 'border-gray-700/50 focus:ring-blue-500/50 focus:border-blue-500/50 hover:border-gray-600/50'
+                }`}
                 placeholder="Confirm your password"
               />
               {errors.confirmPassword && (
-                <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+                <p className="mt-1 text-sm text-red-400">{errors.confirmPassword}</p>
               )}
             </div>
           </div>
@@ -211,7 +231,10 @@ const RegisterPage = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-primary w-full flex justify-center"
+              className="w-full flex justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 
+                       text-white font-semibold rounded-xl transition-all duration-300 
+                       hover:scale-105 transform shadow-lg hover:shadow-blue-500/25
+                       disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {isSubmitting ? (
                 <>
@@ -225,11 +248,11 @@ const RegisterPage = () => {
           </div>
 
           <div className="text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-400">
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="font-medium text-primary-600 hover:text-primary-500"
+                className="font-medium text-blue-400 hover:text-blue-300 transition-colors duration-200"
               >
                 Sign in here
               </Link>

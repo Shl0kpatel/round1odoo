@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { questionsAPI, tagsAPI } from '../services/api';
-import RichTextEditor from '../components/Editor/RichTextEditor';
-import LoadingSpinner from '../components/UI/LoadingSpinner';
+import RichTextEditor from '../components/Editor/RichTextEditor.jsx';
+import LoadingSpinner from '../components/UI/LoadingSpinner.jsx';
 import toast from 'react-hot-toast';
 
 const AskQuestionPage = () => {

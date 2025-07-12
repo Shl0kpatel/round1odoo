@@ -1,16 +1,16 @@
-import React from 'react';
+﻿import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Layout/Navbar';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import AskQuestionPage from './pages/AskQuestionPage';
-import QuestionDetailPage from './pages/QuestionDetailPage';
-import ProfilePage from './pages/ProfilePage';
-import NotificationsPage from './pages/NotificationsPage';
-import AdminDashboard from './pages/AdminDashboard';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
-import AdminRoute from './components/Auth/AdminRoute';
+import Navbar from './components/Layout/Navbar.jsx';
+import HomePage from './pages/HomePage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import RegisterPage from './pages/RegisterPage.jsx';
+import AskQuestionPage from './pages/AskQuestionPage.jsx';
+import QuestionDetailPage from './pages/QuestionDetailPage.jsx';
+import ProfilePage from './pages/ProfilePage.jsx';
+import NotificationsPage from './pages/NotificationsPage.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
+import ProtectedRoute from './components/Auth/ProtectedRoute.jsx';
+import AdminRoute from './components/Auth/AdminRoute.jsx';
 
 function App() {
   return (
@@ -57,3 +57,4 @@ function App() {
 }
 
 export default App;
+
